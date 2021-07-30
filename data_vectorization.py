@@ -1,12 +1,14 @@
 import pandas as pd
+import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 
 train = pd.read_csv('Training_data.csv')
 
 #Vectorizer class initiation
-word_vec0 = CountVectorizer(ngram_range=(1,2), analyzer='word')
+word_vec = CountVectorizer(ngram_range=(1,2), analyzer='word')
 
 #Fitting and transforming the train data
+train.dropna(subset=['clean_txt'], inplace=True)
 mat_tr = word_vec.fit_transform(train['clean_txt'])
 
 #processing the vectorizer output
