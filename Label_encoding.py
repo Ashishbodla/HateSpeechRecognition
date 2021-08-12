@@ -14,8 +14,8 @@ train.rename(columns={0:'Hate',1:'Offensive',2:'Neither'}, inplace=True)
 test.rename(columns={0:'Hate',1:'Offensive',2:'Neither'}, inplace=True)
 
 #Dropping the unnecessary column
-train.drop(columns=['Unnamed: 0'], inplace = True)
-test.drop(columns=['Unnamed: 0'], inplace = True)
+#train.drop(columns=['Unnamed: 0'], inplace = True)
+#test.drop(columns=['Unnamed: 0'], inplace = True)
 
 #Saving the files
 train.to_csv('Training_data.csv', index=False)
