@@ -1,5 +1,7 @@
 import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import confusion_matrix
+import numpy as np
 
 train = pd.read_csv(r"CountVectorised_train.csv")
 test = pd.read_csv(r"CountVectorised_test.csv")
