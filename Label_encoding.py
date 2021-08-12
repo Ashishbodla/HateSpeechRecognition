@@ -19,4 +19,4 @@ test.drop(columns=['Unnamed: 0'], inplace = True)
 
 #Saving the files
 train.to_csv('Training_data.csv', index=False)
-test.to_csv('Training_data.csv', index=False)
+test.to_csv('Test_data.csv', index=False)
