@@ -13,7 +13,7 @@ test.dropna(inplace=True)
 X_train = train.drop(columns = ['class','Hate','Offensive','Neither'])
 y_train = train['class']
 X_test = test.drop(columns = ['class','Hate','Offensive','Neither'])
-y_test = test['class',]
+y_test = test['class']
 
 # Model building for each number of neighbors
 
