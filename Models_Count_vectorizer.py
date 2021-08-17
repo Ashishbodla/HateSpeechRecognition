@@ -25,7 +25,7 @@ for i in range(3,20):
     y_pred = neigh.predict(X_test)
     C = confusion_matrix(y_test,y_pred)
     print(i,np.trace(np.matrix(C)))
-    pickle.dump(neigh,r'C:\Users\AH00546\OneDrive - Anthem\Documents\Ashad\Speech\Count_Vectors_models\Neigh_{}.sav'.format(i))
+    pickle.dump(neigh,r'.\Count_Vectors_models\Neigh_{}.sav'.format(i))
 
 
 
