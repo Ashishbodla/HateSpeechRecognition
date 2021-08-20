@@ -4,6 +4,9 @@ from sklearn.metrics import confusion_matrix
 import numpy as np
 import pickle
 from sklearn import svm
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report
+from sklearn.ensemble import RandomForestClassifier
 
 train = pd.read_csv("CountVectorised_train.csv")
 test = pd.read_csv("CountVectorised_test.csv")
@@ -34,13 +37,13 @@ clf.fit(X_train, y_train)
 y_Pred_svm = clf.predict(X_test)
 C_svm = confusion_matrix(y_test,y_Pred_svm)
 print(np.trace(np.matrix(C_svm)))
-pickle.dump(clf,'SVM_SVC.sav')
+pickle.dump(clf,open('SVM_SVC.sav','wb'))
 
 MNB= MultinomialNB().fit(X_train, train['class'])
 MNB_preds = MNB.predict(X_test)
 print(confusion_matrix(test['class'],MNB_preds))
 print (classification_report(test['class'], MNB_preds))
-pickle.dump(MNB, 'MNB_counts.sav')
+pickle.dump(MNB,open('MNB_counts.sav','wb'))
 
 for N in range(100,1000,100):
     rfc = RandomForestClassifier(n_estimators=N,min_samples_split=5,random_state=42,class_weight="balanced")
@@ -48,4 +51,4 @@ for N in range(100,1000,100):
     rfc_preds = rfc.predict(X_test)
     C_rfc = confusion_matrix(y_test,rfc_preds)
     print(N,np.trace(np.matrix(C_rfc)))
-    pickle.dump(rfc, 'RFC_{}.sav'.format(N))
+    pickle.dump(rfc, open('RFC_{}.sav','wb'.format(N)))
