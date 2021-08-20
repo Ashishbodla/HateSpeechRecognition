@@ -25,12 +25,12 @@ for i in range(3,20):
     y_pred = neigh.predict(X_test)
     C = confusion_matrix(y_test,y_pred)
     print(i,np.trace(np.matrix(C)))
-    pickle.dump(neigh,r'.\Count_Vectors_models\Neigh_{}.sav'.format(i))
+    pickle.dump(neigh,open(r'.\Count_Vectors_models\Neigh_{}.sav','wb'.format(i)))
 
 
 
 clf = svm.SVC()
-clf.fit(X_train, y_trian)
+clf.fit(X_train, y_train)
 y_Pred_svm = clf.predict(X_test)
 C_svm = confusion_matrix(y_test,y_Pred_svm)
 print(np.trace(np.matrix(C_svm)))
@@ -44,7 +44,7 @@ pickle.dump(MNB, 'MNB_counts.sav')
 
 for N in range(100,1000,100):
     rfc = RandomForestClassifier(n_estimators=N,min_samples_split=5,random_state=42,class_weight="balanced")
-    rfc.fit(X_train, y_trian)
+    rfc.fit(X_train, y_train)
     rfc_preds = rfc.predict(X_test)
     C_rfc = confusion_matrix(y_test,rfc_preds)
     print(N,np.trace(np.matrix(C_rfc)))
