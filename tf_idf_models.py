@@ -6,9 +6,9 @@ from sklearn.metrics import confusion_matrix
 import numpy as np
 import pickle
 
-train = pd.read_csv(r'C:\Users\AH00546\OneDrive - Anthem\Documents\Ashad\Speech\tfidf_vectored_train.csv')
+train = pd.read_csv(r'/Users/umeshkethepalli/Desktop/Hate Speech/HateSpeech-3/tfidf_vectored_train.csv')
 
-test = pd.read_csv(r'C:\Users\AH00546\OneDrive - Anthem\Documents\Ashad\Speech\tfidf_vectored_test.csv')
+test = pd.read_csv(r'/Users/umeshkethepalli/Desktop/Hate Speech/HateSpeech-3/tfidf_vectored_test.csv')
 train.dropna(inplace=True)
 test.dropna(inplace=True)
 
