@@ -48,4 +48,4 @@ model2.add(Dense(3,activation='softmax'))
 model2.compile(loss='categorical_crossentropy', optimizer='adam',metrics=['accuracy'])
 model2.fit(X_train_pad,y_train,batch_size=256,validation_data=(X_test_pad,y_test), epochs=20)
 rnn_gru_preds = model2.predict(X_test_pad)
-
+ 
