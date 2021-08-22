@@ -23,4 +23,4 @@ for i in range(3,20):
 
     y_pred = neigh.predict(X_test)
     C = confusion_matrix(y_test,y_pred)
-    print(i,np.trace(np.matrix(C)))
+    print(i,np.trace(np.matrix(C))) 
