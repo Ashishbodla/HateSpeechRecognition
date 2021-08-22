@@ -28,7 +28,7 @@ for i in range(3,20):
     y_pred = neigh.predict(X_test)
     C = confusion_matrix(y_test,y_pred)
     print(i,np.trace(np.matrix(C)))
-    pickle.dump(neigh,open(r'/Users/umeshkethepalli/Desktop/Hate Speech/HateSpeech-3/Count_Vectors_models/Neigh_{}.sav'.format(i),'wb'))
+    pickle.dump(neigh,open(r'/Users/nageswar/Desktop/Hate Speech/HateSpeech-3/Count_Vectors_models/Neigh_{}.sav'.format(i),'wb'))
 
 
 
