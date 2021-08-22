@@ -20,7 +20,7 @@ def clean_text(text):
     text=" ".join(text)
     return text
 
-df = pd.read_csv('labeled_data.csv', usecols=['class','tweet'])
+df = pd.read_csv('./Data_files/labeled_data.csv', usecols=['class','tweet'])
 stemmer = nltk.SnowballStemmer("english")
 stopword=set(stopwords.words('english'))
 df['clean_txt'] = df['tweet'].apply(lambda x: clean_text(x))
