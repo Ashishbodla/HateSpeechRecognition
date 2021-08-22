@@ -22,3 +22,4 @@ df = df1[ind]
 x2 = t_vec.transform(df)
 model = pickle.load(open('./tfidf_vectors_models/MNB_counts.sav','rb'))
 print('The tweet: ', input_text, '- is ', pred_map[model.predict(x2)[0]])
+
