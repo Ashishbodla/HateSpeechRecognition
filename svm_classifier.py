@@ -22,3 +22,4 @@ clf.fit(X_train, y_trian)
 y_Pred_svm = clf.predict(X_test)
 C_svm = confusion_matrix(y_test,y_Pred_svm)
 print(np.trace(np.matrix(C_svm)))
+
