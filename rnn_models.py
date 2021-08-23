@@ -4,7 +4,7 @@ from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 from keras.models import Sequential
 from keras.layers import Dense, Embedding, LSTM, GRU 
 from keras.layers.embeddings import Embedding 
-import pandas as import pd 
+import pandas as pd 
 
 train = pd.read_csv('./Data_files/Training_data.csv')
 test = pd.read_csv('./Data_files/Test_data.csv')
