@@ -20,7 +20,7 @@ all_ = pd.concat([train,test],axis=0)
 reviews = all_['clean_txt']
 tkobj.fit_on_texts(reviews)
 max_length = max([len(s.split()) for s in reviews])
-
+pickle.dump(tkobj,open('Tokenizer.pkl','wb'))
 X_train_tkns = tkobj.texts_to_sequences(X_train['clean_txt'])
 X_test_tkns = tkobj.texts_to_sequences(X_test['clean_txt'])
 X_train_pad = pad_sequences(X_train_tkns, maxlen=max_length, padding = 'post')
@@ -38,6 +38,7 @@ model1.compile(loss='categorical_crossentropy', optimizer='adam',metrics=['accur
 
 model1.fit(X_train_pad,y_train,batch_size=256,validation_data=(X_test_pad,y_test), epochs=20)
 rnn_gru_preds = model1.predict(X_test_pad)
+model1.save('RNN_GRU.h5')
 
 #RNN +LSTM Modelling
 model2 = Sequential()
@@ -48,5 +49,5 @@ model2.add(Dense(3,activation='softmax'))
 model2.compile(loss='categorical_crossentropy', optimizer='adam',metrics=['accuracy'])
 model2.fit(X_train_pad,y_train,batch_size=256,validation_data=(X_test_pad,y_test), epochs=20)
 rnn_gru_preds = model2.predict(X_test_pad)
-
+model2.save('RNN_LSTM.h5')
 
