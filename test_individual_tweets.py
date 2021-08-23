@@ -23,3 +23,16 @@ x2 = t_vec.transform(df)
 model = pickle.load(open('./tfidf_vectors_models/MNB_counts.sav','rb'))
 print('The tweet: ', input_text, '- is ', pred_map[model.predict(x2)[0]])
 
+
+from keras.models import load_model
+mod1 = load_model('RNN_LSTM.h5')
+tok = pickle.load(open('TOkenizer.pkl','rb'))
+
+it = input('Text for RNN Model: ')
+X_train_tkns = tkobj.texts_to_sequences([it])
+
+X_train_pad = pad_sequences(X_train_tkns, maxlen=25, padding = 'post')
+
+pred = mod1.predict(X_train_pad)
+result = np.where(pred.flatten() == np.amax(pred))
+print('The tweet ', it ,'is classified as', pred_map[np.where(pred.flatten() == np.amax(pred))[0][0]])
